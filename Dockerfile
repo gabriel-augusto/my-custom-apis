@@ -48,8 +48,11 @@ COPY --from=build /rails /rails
 
 # Run and own only the runtime files as a non-root user for security
 RUN useradd rails --create-home --shell /bin/bash && \
-    chown -R rails:rails db log storage tmp
+    chown -R rails:rails db log storage tmp /usr/local/bundle/ruby/3.3.0/
 USER rails:rails
+
+# Permit bundle to install new gems
+RUN bundle config set frozen false
 
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
