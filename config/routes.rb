@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
+  post '/api/camera/switch', to: 'api/camera#switch_camera_mode'
+  get '/api/camera/status', to: 'api/camera#camera_status'
+  get '/api/hello', to: 'api/custom#hello'
+  
   # Defines the root path route ("/")
   # root "posts#index"
 end
