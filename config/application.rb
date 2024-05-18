@@ -30,5 +30,6 @@ module CustomApis
     config.api_only = true
 
     config.hosts << "berry.local:3000"
+    config.hosts << "0.0.0.0:3000"
   end
 end

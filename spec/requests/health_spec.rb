@@ -5,7 +5,7 @@ RSpec.describe "/up", type: :request do
 
   it 'check app health status' do
     get '/up'
-    
+
     expect(response).to be_successful
   end
 end
